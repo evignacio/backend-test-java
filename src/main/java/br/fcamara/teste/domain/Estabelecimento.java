@@ -1,16 +1,28 @@
 package br.fcamara.teste.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Estabelecimento {
 
+	@Id @GeneratedValue
+	private Long Id;
 	private String Nome;
 	private String CNPJ;
 	private String Endereco;
 	private String Telefone;
 	private int QtVagasMoto;
 	private int QtVagasCarro;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
 
 	public String getCNPJ() {
 		return CNPJ;
