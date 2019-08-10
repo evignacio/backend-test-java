@@ -8,6 +8,6 @@ import br.fcamara.teste.service.IVeiculoService;
 public class VeiculoService implements IVeiculoService{
 	
 	@Autowired
-	private IVeiculoRepository veiculorepository;
+	private IVeiculoRepository veiculoRepository;
 
 }
