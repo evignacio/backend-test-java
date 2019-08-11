@@ -1,4 +1,4 @@
-package br.fcamara.teste.domain;
+package br.fcamara.test.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
