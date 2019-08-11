@@ -3,6 +3,7 @@ package br.fcamara.test.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Estabelecimento {
@@ -10,11 +11,17 @@ public class Estabelecimento {
 	@Id
 	@GeneratedValue
 	private Long Id;
+	@NotNull
 	private String nome;
+	@NotNull
 	private String cnpj;
+	@NotNull
 	private String endereco;
+	@NotNull
 	private String telefone;
+	@NotNull
 	private int qtVagasMoto;
+	@NotNull
 	private int qtVagasCarro;
 
 	public Long getId() {

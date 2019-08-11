@@ -4,7 +4,15 @@ import java.util.List;
 
 import br.fcamara.test.domain.Veiculo;
 
-public interface IVeiculoService{
+public interface IVeiculoService {
+
+	public Veiculo getById(Long id);
+
+	public Veiculo save(Veiculo veiculo);
+
+	public Veiculo update(Veiculo veiculo);
 
 	public List<Veiculo> findAll();
+	
+	public Boolean delete(Long id);
 }
