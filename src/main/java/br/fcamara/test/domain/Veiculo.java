@@ -8,62 +8,62 @@ import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 public class Veiculo {
-	
-	@Id @GeneratedValue
-	private Long Id;
-	private String Marca;
-	private String Modelo;
-	private String Cor;
-	private String Placa;
-	private TipoVeiculo Tipo;
-	
-	
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String marca;
+	private String modelo;
+	private String cor;
+	private String placa;
+	private TipoVeiculo tipo;
+
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getMarca() {
-		return Marca;
+		return marca;
 	}
 
 	public void setMarca(String marca) {
-		Marca = marca;
+		this.marca = marca;
 	}
 
 	public String getModelo() {
-		return Modelo;
+		return modelo;
 	}
 
 	public void setModelo(String modelo) {
-		Modelo = modelo;
+		this.modelo = modelo;
 	}
 
 	public String getCor() {
-		return Cor;
+		return cor;
 	}
 
 	public void setCor(String cor) {
-		Cor = cor;
+		this.cor = cor;
 	}
 
 	public String getPlaca() {
-		return Placa;
+		return placa;
 	}
 
 	public void setPlaca(String placa) {
-		Placa = placa;
+		this.placa = placa;
 	}
 
 	public TipoVeiculo getTipo() {
-		return Tipo;
+		return tipo;
 	}
 
 	public void setTipo(TipoVeiculo tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 
 }

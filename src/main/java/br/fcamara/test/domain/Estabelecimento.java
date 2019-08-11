@@ -7,14 +7,15 @@ import javax.persistence.Id;
 @Entity
 public class Estabelecimento {
 
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long Id;
-	private String Nome;
-	private String CNPJ;
-	private String Endereco;
-	private String Telefone;
-	private int QtVagasMoto;
-	private int QtVagasCarro;
+	private String nome;
+	private String cnpj;
+	private String endereco;
+	private String telefone;
+	private int qtVagasMoto;
+	private int qtVagasCarro;
 
 	public Long getId() {
 		return Id;
@@ -24,51 +25,52 @@ public class Estabelecimento {
 		Id = id;
 	}
 
-	public String getCNPJ() {
-		return CNPJ;
-	}
-
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
-	}
-
-	public String getEndereco() {
-		return Endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		Endereco = endereco;
-	}
-
-	public String getTelefone() {
-		return Telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		Telefone = telefone;
-	}
-
-	public int getQtVagasMoto() {
-		return QtVagasMoto;
-	}
-
-	public void setQtVagasMoto(int qtVagasMoto) {
-		QtVagasMoto = qtVagasMoto;
-	}
-
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public int getQtVagasMoto() {
+		return qtVagasMoto;
+	}
+
+	public void setQtVagasMoto(int qtVagasMoto) {
+		this.qtVagasMoto = qtVagasMoto;
 	}
 
 	public int getQtVagasCarro() {
-		return QtVagasCarro;
+		return qtVagasCarro;
 	}
 
 	public void setQtVagasCarro(int qtVagasCarro) {
-		QtVagasCarro = qtVagasCarro;
+		this.qtVagasCarro = qtVagasCarro;
 	}
+
 }
