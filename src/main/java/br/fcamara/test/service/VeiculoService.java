@@ -51,12 +51,10 @@ public class VeiculoService implements IVeiculoService {
 
 	public Boolean delete(Long id) {
 		Optional<Veiculo> veiculoOptional = veiculoRepository.findById(id);
-		if(veiculoOptional.isPresent())
-		{
+		if (veiculoOptional.isPresent()) {
 			veiculoRepository.deleteById(id);
 			return true;
-		} 
-		else
+		} else
 			return false;
 	}
 

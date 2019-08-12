@@ -35,7 +35,7 @@ public class VeiculoController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Veiculo> getById(@PathVariable Long id){
+	public ResponseEntity<Veiculo> findById(@PathVariable Long id){
 		Veiculo veiculo = veiculoService.getById(id);
 		if(veiculo.getId() > 0)
 			return ResponseEntity.ok(veiculo);
@@ -52,7 +52,7 @@ public class VeiculoController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> update(@PathVariable Long id, @RequestBody @Valid Veiculo veiculo, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<Veiculo> update(@PathVariable Long id, @RequestBody @Valid Veiculo veiculo) {
 		veiculo.setId(id);
 		Veiculo veiculoUpdate = veiculoService.update(veiculo);
 		
