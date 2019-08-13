@@ -1,6 +1,7 @@
 package br.fcamara.test.domain.tdo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +19,7 @@ public class RegistroEvento {
 	public Long getEstabelecimentoId() {
 		return estabelecimentoId;
 	}
-
+	
 	public void setEstabelecimentoId(Long estabelecimentoId) {
 		this.estabelecimentoId = estabelecimentoId;
 	}

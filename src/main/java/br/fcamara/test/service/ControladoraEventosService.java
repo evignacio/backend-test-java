@@ -1,6 +1,7 @@
 package br.fcamara.test.service;
 
-import java.util.Optional;
+import java.util.List;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +17,10 @@ public class ControladoraEventosService implements IControladoraEventosService {
 	@Autowired
 	private IControladoraEventosRepository controladoraEventosRepository;
 
-	// @Override
-	// public List<ControladoraEventos> eventosOnDate(Long estabelecimentoId,
-	// LocalDateTime date) {
-	// return controladoraEventosRepository.eventosOnDate(estabelecimentoId, date);
-	// }
+	@Override
+	public List<ControladoraEventos> eventosOnDate(Long estabelecimentoId, LocalDateTime date) {
+		return controladoraEventosRepository.eventosInDate(estabelecimentoId, date);
+	}
 
 	@Override
 	public ControladoraEventos saveEvento(RegistroEvento registroEvento) {
