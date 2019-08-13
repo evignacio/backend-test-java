@@ -5,19 +5,22 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "controladora_eventos")
 public class ControladoraEventos {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Estabelecimento estabelecimento;
-	private Veiculo veiculo;
-	private LocalDateTime dateEntrada = LocalDateTime.now();
-	private LocalDateTime dateSaida = LocalDateTime.now();
-	private Evento entrada = Evento.entrada;
+	@NotNull
+	private Long estabelecimentoId;
+	@NotNull
+	private Long veiculoId;
+	private LocalDateTime dateEntrada;
+	private LocalDateTime dateSaida;
+	private Evento evento;
 
-	
 	public LocalDateTime getDateEntrada() {
 		return dateEntrada;
 	}
@@ -26,36 +29,44 @@ public class ControladoraEventos {
 		return dateSaida;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
 
-	public Evento getEntrada() {
-		return entrada;
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setEntrada(Evento entrada) {
-		this.entrada = entrada;
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+	public void setDateEntrada(LocalDateTime dateEntrada) {
+		this.dateEntrada = dateEntrada;
+	}
+
+	public void setDateSaida(LocalDateTime dateSaida) {
+		this.dateSaida = dateSaida;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Estabelecimento getEstabelecimento() {
-		return estabelecimento;
+	public Long getEstabelecimentoId() {
+		return estabelecimentoId;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
-		this.estabelecimento = estabelecimento;
+	public void setEstabelecimentoId(Long estabelecimentoId) {
+		this.estabelecimentoId = estabelecimentoId;
 	}
 
-	public Veiculo getVeiculo() {
-		return veiculo;
+	public Long getVeiculoId() {
+		return veiculoId;
 	}
 
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
+	public void setVeiculoId(Long veiculoId) {
+		this.veiculoId = veiculoId;
 	}
+
 }
