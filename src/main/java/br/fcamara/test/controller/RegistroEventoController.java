@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.fcamara.test.domain.Estabelecimento;
 import br.fcamara.test.domain.RegistroEventos;
-import br.fcamara.test.domain.tdo.RegistroEventoTdo;
+import br.fcamara.test.domain.dto.RegistroEventosDto;
+import br.fcamara.test.service.IEstabelecimentoService;
 import br.fcamara.test.service.IRegistroEventoService;
 
 @ResponseBody
@@ -27,16 +30,20 @@ public class RegistroEventoController {
 	private IRegistroEventoService controladoraEventosService;
 
 	@GetMapping("/{estabelecimentoId}")
-	public List<RegistroEventos> eventos(@PathVariable Long estabelecimentoId) {
+	public List<RegistroEventosDto> eventos(@PathVariable Long estabelecimentoId) {
 		return controladoraEventosService.findByEstacionamentoId(estabelecimentoId);
 	}
 
 	@PostMapping
-	public ResponseEntity<?> saveEntrada(@RequestBody RegistroEventoTdo registroEvento, UriComponentsBuilder uriBuilder){
+	public ResponseEntity<?> saveEntrada(@RequestBody RegistroEventosDto registroEvento, UriComponentsBuilder uriBuilder) {
 		RegistroEventos controladoraEventosSave = controladoraEventosService.saveEvento(registroEvento);
-		
-		URI uri = uriBuilder.path("/api/evento/{estabelecimentoId}").buildAndExpand(controladoraEventosSave.getId()).toUri();
-		return ResponseEntity.created(uri).body(controladoraEventosSave);
+		if (controladoraEventosSave.getId() > 0) {
+			URI uri = uriBuilder.path("/api/evento/{estabelecimentoId}").buildAndExpand(controladoraEventosSave.getId())
+					.toUri();
+			return ResponseEntity.created(uri).body(controladoraEventosSave);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 
 	}
 }

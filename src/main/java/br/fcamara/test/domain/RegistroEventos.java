@@ -9,18 +9,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-@Entity(name = "registroEventos")
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity(name = "registro_eventos")
 public class RegistroEventos {
 	@Id
 	@GeneratedValue
 	private Long id;
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "estabelecimento_id", referencedColumnName="id")
+	@JsonIgnore
+	@JoinColumn(name = "estabelecimento_id", referencedColumnName = "id")
 	private Estabelecimento estabelecimento;
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "veiculo_id", referencedColumnName="id")
+	@JsonIgnore
+	@JoinColumn(name = "veiculo_id", referencedColumnName = "id")
 	private Veiculo veiculo;
 	private LocalDateTime dateEvento;
 	private Evento evento;

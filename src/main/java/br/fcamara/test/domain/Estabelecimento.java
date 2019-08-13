@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Estabelecimento {
 
@@ -28,6 +31,7 @@ public class Estabelecimento {
 	@NotNull
 	private int qtVagasCarro;
 	@OneToMany(mappedBy = "estabelecimento", cascade= CascadeType.ALL)
+	@JsonIgnore
 	private List<RegistroEventos> registroEventos;
 
 	public List<RegistroEventos> getRegistroEventos() {
