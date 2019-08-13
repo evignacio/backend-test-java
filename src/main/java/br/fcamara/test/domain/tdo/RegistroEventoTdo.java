@@ -1,13 +1,12 @@
 package br.fcamara.test.domain.tdo;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotNull;
 
 import br.fcamara.test.domain.Evento;
 
-public class RegistroEvento {
+public class RegistroEventoTdo {
 
 	@NotNull
 	private Long estabelecimentoId;

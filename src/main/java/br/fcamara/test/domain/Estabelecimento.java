@@ -1,8 +1,12 @@
 package br.fcamara.test.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -10,7 +14,7 @@ public class Estabelecimento {
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	@NotNull
 	private String nome;
 	@NotNull
@@ -23,13 +27,23 @@ public class Estabelecimento {
 	private int qtVagasMoto;
 	@NotNull
 	private int qtVagasCarro;
+	@OneToMany(mappedBy = "estabelecimento", cascade= CascadeType.ALL)
+	private List<RegistroEventos> registroEventos;
+
+	public List<RegistroEventos> getRegistroEventos() {
+		return registroEventos;
+	}
+
+	public void setRegistroEventos(List<RegistroEventos> registroEventos) {
+		this.registroEventos = registroEventos;
+	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getNome() {

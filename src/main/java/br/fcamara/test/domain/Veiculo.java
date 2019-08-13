@@ -1,11 +1,13 @@
 package br.fcamara.test.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 public class Veiculo {
@@ -23,6 +25,16 @@ public class Veiculo {
 	private String placa;
 	@NotNull
 	private TipoVeiculo tipo;
+	@OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
+	private List<RegistroEventos> registroEventos;
+
+	public List<RegistroEventos> getRegistroEventos() {
+		return registroEventos;
+	}
+
+	public void setRegistroEventos(List<RegistroEventos> registroEventos) {
+		this.registroEventos = registroEventos;
+	}
 
 	public Long getId() {
 		return id;
