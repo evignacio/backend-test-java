@@ -1,5 +1,6 @@
 package br.fcamara.test.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ public class Estabelecimento {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	@NotNull
 	private String nome;
 	@NotNull
@@ -41,7 +42,7 @@ public class Estabelecimento {
 	public void setRegistroEventos(List<RegistroEventos> registroEventos) {
 		this.registroEventos = registroEventos;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

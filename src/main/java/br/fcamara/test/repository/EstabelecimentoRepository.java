@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.fcamara.test.domain.Estabelecimento;
 
-public interface IEstabelecimentoRepository extends JpaRepository<Estabelecimento, Long> {
+public interface EstabelecimentoRepository extends JpaRepository<Estabelecimento, Long> {
 
 }

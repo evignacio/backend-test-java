@@ -17,7 +17,7 @@ public class Veiculo {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	@NotNull
 	private String marca;
 	@NotNull

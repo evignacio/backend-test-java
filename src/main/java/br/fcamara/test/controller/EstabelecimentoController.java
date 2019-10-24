@@ -14,20 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.fcamara.test.domain.Estabelecimento;
-import br.fcamara.test.service.IEstabelecimentoService;
+import br.fcamara.test.service.EstabelecimentoService;
 
-@ResponseBody
 @RestController
 @RequestMapping("/api/estabelecimento")
 public class EstabelecimentoController {
 
 	@Autowired
-	private IEstabelecimentoService estabelecimentoService;
+	private EstabelecimentoService estabelecimentoService;
 
 	@GetMapping
 	public List<Estabelecimento> GetAll() {
@@ -37,8 +35,9 @@ public class EstabelecimentoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Estabelecimento> findById(@PathVariable Long id) {
 		Estabelecimento estabelecimento = estabelecimentoService.findById(id);
+
 		if(estabelecimento.getId() > 0)
-		return ResponseEntity.ok().body(estabelecimento);
+			return ResponseEntity.ok().body(estabelecimento);
 		
 		return ResponseEntity.notFound().build();
 	}
@@ -56,17 +55,18 @@ public class EstabelecimentoController {
 	public ResponseEntity<Estabelecimento> update(@PathVariable Long id, @RequestBody @Valid Estabelecimento estabelecimento) {
 		estabelecimento.setId(id);
 		Estabelecimento estabelecimentoUpdate =  estabelecimentoService.update(estabelecimento);
+
 		if(estabelecimentoUpdate.getId() > 0)
 			return ResponseEntity.ok(estabelecimentoUpdate);
 		else
 			return ResponseEntity.notFound().build();
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id){
-		if(estabelecimentoService.delete(id)) {
+		if(estabelecimentoService.delete(id))
 			return ResponseEntity.ok().body("Estabelecimento excluido com sucesso");
-		}
+
 		return ResponseEntity.notFound().build();
 	}
 

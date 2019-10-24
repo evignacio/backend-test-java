@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import br.fcamara.test.domain.RegistroEventos;
 
-public interface IRegistroEventoRepository extends JpaRepository<RegistroEventos, Long> {
+public interface RegistroEventoRepository extends JpaRepository<RegistroEventos, Long> {
 	
 	@Query(value = "SELECT TOP 1 * FROM [dbo].[registro_eventos] WHERE estabelecimento_id = :estabelecimentoId AND veiculo_id = :veiculoId ORDER BY id DESC", nativeQuery = true)
 	RegistroEventos findbyEstabelecimentoVeiculoId(Long estabelecimentoId, Long veiculoId); 

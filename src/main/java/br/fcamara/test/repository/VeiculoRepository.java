@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.fcamara.test.domain.Veiculo;
 
 @Repository
-public interface IVeiculoRepository extends JpaRepository<Veiculo, Long> {
+public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 
-	
 }

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class RegistroEventos {
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	@NotNull
 	@ManyToOne
 	@JsonIgnore

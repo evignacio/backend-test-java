@@ -4,30 +4,25 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.fcamara.test.domain.Estabelecimento;
 import br.fcamara.test.domain.RegistroEventos;
 import br.fcamara.test.domain.dto.RegistroEventosDto;
-import br.fcamara.test.service.IEstabelecimentoService;
-import br.fcamara.test.service.IRegistroEventoService;
+import br.fcamara.test.service.RegistroEventoService;
 
-@ResponseBody
 @RestController
 @RequestMapping("/api/evento")
 public class RegistroEventoController {
 
 	@Autowired
-	private IRegistroEventoService controladoraEventosService;
+	private RegistroEventoService controladoraEventosService;
 
 	@GetMapping("/{estabelecimentoId}")
 	public List<RegistroEventosDto> eventos(@PathVariable Long estabelecimentoId) {
@@ -38,8 +33,10 @@ public class RegistroEventoController {
 	public ResponseEntity<?> saveEntrada(@RequestBody RegistroEventosDto registroEvento, UriComponentsBuilder uriBuilder) {
 		RegistroEventos controladoraEventosSave = controladoraEventosService.saveEvento(registroEvento);
 		if (controladoraEventosSave.getId() > 0) {
-			URI uri = uriBuilder.path("/api/evento/{estabelecimentoId}").buildAndExpand(controladoraEventosSave.getId())
+			URI uri = uriBuilder.path("/api/evento/{estabelecimentoId}")
+					.buildAndExpand(controladoraEventosSave.getId())
 					.toUri();
+
 			return ResponseEntity.created(uri).body(controladoraEventosSave);
 		} else {
 			return ResponseEntity.notFound().build();

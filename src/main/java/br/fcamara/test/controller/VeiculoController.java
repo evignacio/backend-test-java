@@ -14,20 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.fcamara.test.domain.Veiculo;
-import br.fcamara.test.service.IVeiculoService;
+import br.fcamara.test.service.VeiculoService;
 
-@ResponseBody
 @RestController
 @RequestMapping("/api/veiculo")
 public class VeiculoController {
 
 	@Autowired
-	private IVeiculoService veiculoService;
+	private VeiculoService veiculoService;
 
 	@GetMapping
 	public List<Veiculo> findAll() {
@@ -47,7 +45,10 @@ public class VeiculoController {
 	public ResponseEntity<Veiculo> save(@RequestBody @Valid Veiculo veiculo, UriComponentsBuilder uriBuilder) {
 
 		Veiculo veiculoSave = veiculoService.save(veiculo);
-		URI uri = uriBuilder.path("/api/veiculo/{id}").buildAndExpand(veiculo.getId()).toUri();
+		URI uri = uriBuilder.path("/api/veiculo/{id}")
+				.buildAndExpand(veiculo.getId())
+				.toUri();
+
 		return ResponseEntity.created(uri).body(veiculoSave);
 	}
 
