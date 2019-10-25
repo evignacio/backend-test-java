@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity(name = "registro_eventos")
+@Entity(name = "REGISTRO_EVENTOS")
 public class RegistroEventos {
 	@Id
 	@GeneratedValue

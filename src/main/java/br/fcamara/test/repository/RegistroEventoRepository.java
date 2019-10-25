@@ -9,9 +9,8 @@ import br.fcamara.test.domain.RegistroEventos;
 
 public interface RegistroEventoRepository extends JpaRepository<RegistroEventos, Long> {
 	
-	@Query(value = "SELECT TOP 1 * FROM [dbo].[registro_eventos] WHERE estabelecimento_id = :estabelecimentoId AND veiculo_id = :veiculoId ORDER BY id DESC", nativeQuery = true)
-	RegistroEventos findbyEstabelecimentoVeiculoId(Long estabelecimentoId, Long veiculoId); 
-	
-	
-	List<RegistroEventos> findByEstabelecimentoId(Long id);
+	@Query(value = "SELECT TOP 1 * FROM REGISTRO_EVENTOS WHERE estabelecimento_id = :estabelecimentoId AND veiculo_id = :veiculoId ORDER BY id DESC", nativeQuery = true)
+	RegistroEventos findLastRegistroEventoVeiculo(long estabelecimentoId, Long veiculoId);
+
+	List<RegistroEventos> findByEstabelecimentoId(long id);
 }

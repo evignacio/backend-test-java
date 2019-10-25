@@ -45,7 +45,7 @@ public class RegistroEventoServiceImp implements RegistroEventoService {
 		if (!veiculoOp.isPresent() || !estabelecimentoOp.isPresent())
 			throw new RuntimeException("Veiculo ou estabelecimento não encontrado");
 
-		RegistroEventos ultimoRegistroEvento = registroEventoRepository.findbyEstabelecimentoVeiculoId(registroEventoDto.getEstabelecimentoId(), registroEventoDto.getVeiculoId());
+		RegistroEventos ultimoRegistroEvento = registroEventoRepository.findLastRegistroEventoVeiculo(registroEventoDto.getEstabelecimentoId(), registroEventoDto.getVeiculoId());
 
 		RegistroEventos registroEventosNovo = new RegistroEventos();
 		registroEventosNovo.setVeiculo(veiculoOp.get());
