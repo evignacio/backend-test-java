@@ -3,6 +3,8 @@ package br.fcamara.test.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.fcamara.test.infra.exception.EstabelecimentoException;
+import br.fcamara.test.infra.exception.VeiculoException;
 import br.fcamara.test.repository.EstabelecimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +44,11 @@ public class RegistroEventoServiceImp implements RegistroEventoService {
 		Optional<Veiculo> veiculoOp = veiculoRepository.findById(registroEventoDto.getVeiculoId());
 		Optional<Estabelecimento> estabelecimentoOp = estabelecimentoRepository.findById(registroEventoDto.getEstabelecimentoId());
 
-		if (!veiculoOp.isPresent() || !estabelecimentoOp.isPresent())
-			throw new RuntimeException("Veiculo ou estabelecimento não encontrado");
+		if (!veiculoOp.isPresent())
+			throw new VeiculoException("Veiculo não encontrado");
+
+		if(!estabelecimentoOp.isPresent())
+			throw new EstabelecimentoException("Estabelecimento não encontrado");
 
 		RegistroEventos ultimoRegistroEvento = registroEventoRepository.findLastRegistroEventoVeiculo(registroEventoDto.getEstabelecimentoId(), registroEventoDto.getVeiculoId());
 
