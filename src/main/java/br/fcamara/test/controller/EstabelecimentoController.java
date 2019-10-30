@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.fcamara.test.domain.Estabelecimento;
-import br.fcamara.test.service.EstabelecimentoService;
+import br.fcamara.test.domain.entities.Estabelecimento;
+import br.fcamara.test.application.service.EstabelecimentoService;
 
 @RestController
 @RequestMapping("/api/estabelecimento")

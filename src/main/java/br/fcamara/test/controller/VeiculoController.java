@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.fcamara.test.domain.Veiculo;
-import br.fcamara.test.service.VeiculoService;
+import br.fcamara.test.domain.entities.Veiculo;
+import br.fcamara.test.application.service.VeiculoService;
 
 @RestController
 @RequestMapping("/api/veiculo")

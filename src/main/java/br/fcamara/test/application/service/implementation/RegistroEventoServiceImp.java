@@ -1,21 +1,22 @@
-package br.fcamara.test.service;
+package br.fcamara.test.application.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
 
+import br.fcamara.test.application.service.RegistroEventoService;
 import br.fcamara.test.infra.exception.EstabelecimentoException;
 import br.fcamara.test.infra.exception.VeiculoException;
-import br.fcamara.test.repository.EstabelecimentoRepository;
+import br.fcamara.test.domain.repository.EstabelecimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.fcamara.test.domain.Estabelecimento;
-import br.fcamara.test.domain.Evento;
-import br.fcamara.test.domain.RegistroEventos;
-import br.fcamara.test.domain.Veiculo;
-import br.fcamara.test.domain.dto.RegistroEventosDto;
-import br.fcamara.test.repository.RegistroEventoRepository;
-import br.fcamara.test.repository.VeiculoRepository;
+import br.fcamara.test.domain.entities.Estabelecimento;
+import br.fcamara.test.domain.entities.Evento;
+import br.fcamara.test.domain.entities.RegistroEventos;
+import br.fcamara.test.domain.entities.Veiculo;
+import br.fcamara.test.domain.entities.dto.RegistroEventosDto;
+import br.fcamara.test.domain.repository.RegistroEventoRepository;
+import br.fcamara.test.domain.repository.VeiculoRepository;
 
 import javax.transaction.Transactional;
 

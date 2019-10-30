@@ -1,15 +1,16 @@
-package br.fcamara.test.service;
+package br.fcamara.test.application.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import br.fcamara.test.application.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.fcamara.test.domain.Veiculo;
-import br.fcamara.test.repository.VeiculoRepository;
+import br.fcamara.test.domain.entities.Veiculo;
+import br.fcamara.test.domain.repository.VeiculoRepository;
 
 @Service
 public class VeiculoServiceImp implements VeiculoService {

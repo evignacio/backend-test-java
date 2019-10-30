@@ -1,11 +1,11 @@
-package br.fcamara.test.repository;
+package br.fcamara.test.domain.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import br.fcamara.test.domain.RegistroEventos;
+import br.fcamara.test.domain.entities.RegistroEventos;
 
 public interface RegistroEventoRepository extends JpaRepository<RegistroEventos, Long> {
 	

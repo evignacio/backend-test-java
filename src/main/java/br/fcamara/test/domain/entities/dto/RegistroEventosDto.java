@@ -1,13 +1,13 @@
-package br.fcamara.test.domain.dto;
+package br.fcamara.test.domain.entities.dto;
+
+import br.fcamara.test.domain.entities.Evento;
+import br.fcamara.test.domain.entities.RegistroEventos;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotNull;
-
-import br.fcamara.test.domain.Evento;
-import br.fcamara.test.domain.RegistroEventos;
 
 public class RegistroEventosDto {
 

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.fcamara.test.domain.RegistroEventos;
-import br.fcamara.test.domain.dto.RegistroEventosDto;
-import br.fcamara.test.service.RegistroEventoService;
+import br.fcamara.test.domain.entities.RegistroEventos;
+import br.fcamara.test.domain.entities.dto.RegistroEventosDto;
+import br.fcamara.test.application.service.RegistroEventoService;
 
 @RestController
 @RequestMapping("/api/evento")

@@ -1,15 +1,16 @@
-package br.fcamara.test.service;
+package br.fcamara.test.application.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import br.fcamara.test.repository.EstabelecimentoRepository;
+import br.fcamara.test.application.service.EstabelecimentoService;
+import br.fcamara.test.domain.repository.EstabelecimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.fcamara.test.domain.Estabelecimento;
+import br.fcamara.test.domain.entities.Estabelecimento;
 
 @Service
 public class EstabelecimentoServiceImp implements EstabelecimentoService {

@@ -1,4 +1,4 @@
-package br.fcamara.test.domain;
+package br.fcamara.test.domain.entities;
 
 public enum TipoVeiculo {
 	carro,

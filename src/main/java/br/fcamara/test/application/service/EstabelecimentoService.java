@@ -1,8 +1,8 @@
-package br.fcamara.test.service;
+package br.fcamara.test.application.service;
 
 import java.util.List;
 
-import br.fcamara.test.domain.Estabelecimento;
+import br.fcamara.test.domain.entities.Estabelecimento;
 
 public interface EstabelecimentoService  {
 
